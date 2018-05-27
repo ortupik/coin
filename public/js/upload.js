@@ -77,6 +77,9 @@ App.init = function () {
                 success: function(data){
                     //files template
                     console.log('upload successful!\n' + data);
+                    $('.progress-bar').html('Done');
+                         $("#uploadBtn").addClass("action-button");
+                         $("#uploadBtn").removeAttr("disabled");
                 },
                 xhr: function() {
                   // create an XMLHttpRequest
@@ -97,9 +100,7 @@ App.init = function () {
 
                       // once the upload reaches 100%, set the progress bar text to done
                       if (percentComplete === 100) {
-                         $('.progress-bar').html('Done');
-                         $("#uploadBtn").addClass("action-button");
-                         $("#uploadBtn").removeAttr("disabled");
+                         
                       }
 
                     }
