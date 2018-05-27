@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+        <title>coinapolis</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <!-- Custom styles -->
+        <link href="assets/multistepform/css/style.css" rel="stylesheet">
+        <link href="assets/multistepform/css/dropdown.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="js/init.js"></script>
+        <style type="text/css">
+
+            #widget {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                font: normal 10px verdana;
+                text-align: left;
+                margin: 40px auto;
+              
+            }
+            form {
+                width: 98%;
+            }
+            select {
+                width: 190px;
+                font: normal 11px verdana;
+            }
+      
+
+        </style>
+        <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <img src="img/img.png" height="50px" style="padding-top: 5px;padding-bottom: 3px; padding-left: 30px;" />
+                <span style="color:gold;">coin</span><span style="color: whitesmoke">acropolis.com</span>
+            </div>
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <ul class="nav navbar-nav navbar-right navbar-top-links" style="padding-right: 20px; padding-left: 30px; ">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <span id="username_text"></span> <b class="caret"></b>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.navbar-top-links -->
+        </nav>
+
+        <br><br>
+        <!-- MultiStep Form -->
+        <div class="row multiForm">
+            <div class="col-md-7 col-md-offset-2">
+                <form id="identityForm">
+                    <div id="msform">
+                        <!-- progressbar -->
+                        <ul class="" id="progressbar">
+                            <li class="active"><i class="fa fa-tablet" style="font-size:28px; color: #ee0979;"></i><br><br>Setup 2FA</li>
+                            <!--<li class="active"><i class="fa fa-bank"  style="font-size:24px;  "></i><br><br>Add Bank Account</li>-->
+                            <li class="active"><i class="fa fa-user" style="font-size:28px;"></i><br><br>Verify Identity</li>
+                            <li><i class="fa fa-file" style="font-size:24px;"></i><br><br>Upload Docs</li>
+                            <li><i class="fa fa-check" style="font-size:24px;"></i><br><br>Complete</li>
+                        </ul>
+                        <hr>
+                        <!-- fieldsets -->
+                        <fieldset>
+                            <h2 class="fs-title">Verify Your Identity</h2>
+                            <h3 class="fs-subtitle">Before any transactions can take place, we need to verify your identity using uploads of your photo ID and proof of  address documents. The information below has been pre-filled
+                                to the best of our ability. Please check all fields carefully and completely.</h3> 
+
+                            <h3 class="fs-title_small">Personal Information</h3>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="fs-subtitle"><b>Legal First Name</b></div>
+                                    <input type="text" id="fname" required=""/>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="fs-subtitle"><b>Middle Name</b></div>
+                                    <input type="text" id="mname" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="fs-subtitle"><b>Legal Last Name</b></div>
+                                    <input type="text" id="lname" required=""/>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="fs-subtitle"><b>Date of Birth (MM/DD/YYYY)</b></div>
+                                    <input type="date" id="dob" onblur="dobcheck()" required=""  />
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="fs-subtitle"><b>Occupation/Profession</b></div>
+                                    <input type="text" id="occupation" required="" />
+                                </div>
+                            </div>
+                            <br>
+                            <h3 class="fs-title_small">Home Address</h3>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="fs-subtitle"><b>Address</b></div>
+                                    <input type="text" id="address" required=""/>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="fs-subtitle"><b>Unit/Floor (Optional)</b></div>
+                                    <input type="text" id="unit" />
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                               
+                               
+                                <div id="widget" >
+                                    <form>
+                                         <div class="col-lg-4">
+                                         <span class="fs-subtitle"><b>Region&raquo;</b></span>
+                                         <select onchange="set_country(this, country, city_state)" id="regionSelect" size="1" class="ui dropdown select" name="region">
+                                            <option value="" selected="selected">SELECT REGION</option>
+                                        </select>
+                                         </div>
+                                         <div class="col-lg-4">
+                                         <span class="fs-subtitle"><b>Country&raquo;</b></span> 
+                                         <select id="country" size="1" disabled="disabled" onchange="set_city_state(this, city_state)" class="ui dropdown select"></select>
+                                         </div>
+                                         <div class="col-lg-4">
+                                         <span class="fs-subtitle"><b>State&raquo;</b></span> 
+                                        <select id="city_state" size="1" disabled="disabled" onchange="print_city_state(country, this)" class="ui dropdown select"></select>
+                                         </div>
+                                    </form>
+                                  
+                                </div>
+                                
+                            </div>
+                            <br>
+                            <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="fs-subtitle"><b>City</b></div>
+                                    <input type="text" id="city" required=""/>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="fs-subtitle"><b>Zip Code</b></div>
+                                    <input type="text" id="zip" required="" />
+                                </div>
+
+                            </div>
+                            <br>
+                            <h3 class="fs-title_small">Personal Information</h3>
+                            <h3 class="fs-subtitle">In order to verify your identity, you will be asked to submit a photo of your Passport or Driver's License on the next page.Please provide some basic information about the ID you plan to submit.</h3>
+                            <div class="fs-subtitle"><b>ID Type</b></div>
+                            <div >
+                                <select id="idType"  class="ui dropdown select" >
+                                    <option value="N" selected="">Select ID Type</option>
+                                    <option value="National ID" >National ID</option>
+                                    <option value="Passport" >Passport</option>
+                                </select>
+                            </div>
+                            <br><br>
+                            <div>
+                                <input type="submit" name="next" class="next action-button" value="Next"/>
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
+                <!-- link to designify.me code snippets -->
+
+                <!-- /.link to designify.me code snippets -->
+            </div>
+        </div>
+        <script type="text/javascript">
+            function calculate_age(dob) {
+                var diff_ms = Date.now() - dob.getTime();
+                var age_dt = new Date(diff_ms);
+
+                return Math.abs(age_dt.getUTCFullYear() - 1970);
+            }
+            function dobcheck()
+            {
+                var birth = document.getElementById('dob');
+
+                var date = $("#dob").val();
+
+                var newDate = date.split("-");
+
+                var age = calculate_age(new Date(newDate[0], newDate[1], newDate[2]));
+                if (age < 18) {
+                    alert("You must be 18 years and above !")
+                }
+
+                return age;
+            }
+        </script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42669807-3"></script>
+        <script>
+            var email = getCookie("email");
+            var user_id = getCookie("user_id");
+            var username = getCookie("username");
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'UA-42669807-3');
+            gtag('user_id', user_id);
+            gtag('email', email);
+            gtag('username', username);
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42669807-4"></script>
+        <script>
+            var email = getCookie("email");
+            var user_id = getCookie("user_id");
+            var username = getCookie("username");
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'UA-42669807-4');
+            gtag('user_id', user_id);
+            gtag('email', email);
+            gtag('username', username);
+        </script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/dropdown.min.js"></script>
+        <script src="js/city_state.js"></script>
+        <script type="text/javascript">
+            setRegions(this);
+        </script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            $('.select').dropdown();
+        </script>
+
+        <script src="js/handler.js"></script>
+    </body>
+</html>

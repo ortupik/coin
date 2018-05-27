@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+        <title>coinapolis</title>
+        <!-- Bootstrap core CSS -->
+        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300'>
+        <!-- Custom styles -->
+        <link href="assets/multistepform/css/style.css" rel="stylesheet">
+         <link href="assets/multistepform/css/upload.css" rel="stylesheet">
+        <link href="assets/multistepform/css/dropdown.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="js/init.js"></script>
+     
+          <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+    </head>
+    <body>
+         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="setup_2fa.html">coinacropolis</a>
+                </div>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+             <ul class="nav navbar-nav navbar-right navbar-top-links" style="padding-right: 20px;">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i> <span id="username_text"></span> <b class="caret"></b>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.navbar-top-links -->
+            </nav>
+
+        <br><br>
+        <!-- MultiStep Form -->
+        <div class="row">
+            <div class="col-md-7 col-md-offset-2">
+                <div id="msform" >
+                    <!-- progressbar -->
+                    <ul class="" id="progressbar">
+                        <li class="active"><i class="fa fa-tablet" style="font-size:28px; color: #ee0979;"></i><br><br>Setup 2FA</li>
+                        <!--<li class="active"><i class="fa fa-bank"  style="font-size:24px;  "></i><br><br>Add Bank Account</li>-->
+                        <li class="active"><i class="fa fa-user" style="font-size:28px;"></i><br><br>Verify Identity</li>
+                        <li class="active"><i class="fa fa-file" style="font-size:24px;"></i><br><br>Upload Docs</li>
+                        <li ><i class="fa fa-check" style="font-size:24px;"></i><br><br>Complete</li>
+                    </ul>
+                    <hr>
+                    <!-- fieldsets -->
+                    <fieldset>
+                        <h2 class="fs-title">Document Upload</h2>
+                        <h3 class="fs-subtitle">Inorder to verify your identity on this account, please provide your Photo ID(front side or photo page of drive's license or passport)</h3>
+                        <br><br>
+                        <div class="row">
+                            <div class=" col-lg-6">
+                                <div class="upload">
+                                    <div class="upload-files">
+                                     <header>
+                                      <p>
+                                       <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                       <span class="up">up</span>
+                                       <span class="load">load</span>
+                                      </p>
+                                     </header>
+                                     <div class="body" id="drop">
+                                      <i class="fa fa-file-text-o pointer-none" aria-hidden="true"></i>
+                                      <p class="pointer-none"><b>Drag and drop</b> photo here <br /> or <a href="" id="triggerFile">browse</a> to begin the upload</p>
+                                                           <input type="file" />
+                                     </div>
+                                     <footer>
+                                      <div class="divider">
+                                       <span><AR>FILES</AR></span>
+                                      </div>
+                                      <div class="list-files">
+                                       
+                                      </div>
+                                        <button class="importar" >UPDATE PHOTO</button>
+                                     </footer>
+                                    </div>
+                                   </div>
+                            </div>
+                            <div class="col col-lg-5 well">
+                                <small>
+                                    <div>
+                                   <strong>ACCEPTABLE ID TYPES</strong>
+                                   <hr>
+                                   <strong style="color: green;">Permitted</strong><br>
+                                   <div><i class="fa fa-check" style="color: green;"></i> Driver's License (front side only)</div>
+                                    <div><i class="fa fa-check" style="color: green;"></i> Passport (photo page only)</div>
+                                    <div><i class="fa fa-check" style="color: green;"></i> Identity (front side only)</div>
+                                    <br>
+                                    <strong style="color: red;">Not Permitted</strong><br>
+                                    <div><i class="fa fa-remove" style="color: red;"></i> Student ID</div>
+                                    <br>
+                                     <strong>Tips for better ID Images</strong>
+                                     <hr>
+                                     <div>Image must be of a <strong>valid, non expired ID </strong></div>
+                                     <div>Image must be <strong>well - lit </strong></div>
+                                     <div>Image must be <strong> legible</strong></div>
+                                     <div>Image must have no <strong> blur or glare </strong></div>
+                                    </div>
+                                </small>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                        <form action="/complete">
+                            <input type="submit" id="uploadBtn" class="next " style="width: 100px;" value="Next" disabled="" />
+                        </form>
+                        </div>
+                    </fieldset>
+                   
+                </div>
+              
+            </div>
+        </div>
+      
+         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42669807-3"></script>
+        <script>
+            var email = getCookie("email");
+            var user_id = getCookie("user_id");
+            var username = getCookie("username");
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-42669807-3');
+           gtag('user_id', user_id);
+           gtag('email', email);
+           gtag('username', username);
+        </script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+     
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42669807-4"></script>
+        <script>
+         var email = getCookie("email");
+          var user_id = getCookie("user_id");
+          var username = getCookie("username");
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-42669807-4');
+           gtag('user_id', user_id);
+           gtag('email', email);
+           gtag('username', username);
+        </script>
+     <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/init.js"></script>
+     <script src="js/handler.js"></script>
+     <script src="js/dropdown.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+     <script src="js/handler.js"></script>
+       <script src="js/upload.js"></script>
+    </body>
+</html>
