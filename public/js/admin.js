@@ -138,6 +138,7 @@
              //   href='/photos/"+path+"'
         
     }
+    }
     function download(filename) {
         if (typeof filename==='undefined') filename = ""; // default
         value = document.getElementById('textarea_area').value;

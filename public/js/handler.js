@@ -240,7 +240,7 @@ $(function () {
     });
     
     $("#finishBtn").on("click",function(e){
-         var username = getCookie("username");
+         var username = "Client";
           var email = getCookie("email");
            $("#finishBtn").attr("disabled","disabled");
            $.ajax({
