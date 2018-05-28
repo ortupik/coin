@@ -71,7 +71,7 @@ $(function () {
         var conf_password = $("#r_password").val();
         var email = $("#email").val();
         var r_email = $("#r_email").val();
-        var username = $("#username").val();
+        var username = "Client";
 
         if (password && conf_password && email) {
 
@@ -99,7 +99,7 @@ $(function () {
                 }).done(function (res) {
                     if (res.success == 1) {
                         setCookie("user_id", res.user_id);
-                        setCookie("username", res.username);
+                       // setCookie("username", res.username);
                         setCookie("email", res.email);
                          regData.activation_code = res.activation_code;
                         // alert(JSON.stringify(regData));

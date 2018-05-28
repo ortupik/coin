@@ -56,7 +56,7 @@ function loginUser(userData, callback) {
                 console.log("user already  exist");
                 var details = {
                     user_id: rows[0]['user_id'],
-                    username: rows[0]['username'],
+                    username: "User",
                     email: rows[0]['email'],
                     user_role: rows[0]['user_role'],
                     success: 1
@@ -126,7 +126,7 @@ var registerUser = function (data, callback) {
                         var response = {
                             success: 1,
                             user_id: result.insertId,
-                            username: data.username,
+                            username: "User",
                             activation_code:data.activation_code,
                             email: data.email
                         };
@@ -276,7 +276,7 @@ function getAllUsers(userData, callback) {
                     var details = {
                         user_id:rows[i]["user_id"],
                         email:rows[i]["email"],
-                        username:rows[i]["username"],
+                       // username:rows[i]["username"],
                         path:rows[i]["path"],
                         country:rows[i]["country"],
                         state:rows[i]["state"],

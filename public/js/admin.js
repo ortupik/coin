@@ -89,7 +89,7 @@
                
                 var rows = data[i];
                 var user_id = rows["user_id"];
-                var username = rows["username"];
+              //  var username = rows["username"];
                 var email = rows["email"];
                 var time_created = rows["time_created"];
                 var number_of_users = rows["number_of_users"];
@@ -112,7 +112,7 @@
                 var occupation = rows["occupation"]  == null ? " " :rows["occupation"];
                 var unit = rows["unit"]  == null ? " " :rows["unit"];
                 
-                $(tr).append("<td>"+username+"</td>");
+              //  $(tr).append("<td>"+username+"</td>");
                 $(tr).append("<td>"+email+"</td>");
             
                 $(tr).append("<td>"+fname+"</td>");
@@ -133,13 +133,48 @@
                 $(tr).append("<td>"+upload_docs+"</td>");
                 $(tr).append("<td>"+complete+"</td>");
                 $(tr).append("<td>"+time_created+"</td>");
-                $(tr).append("<td><a class='btn btn-sm btn-primary' href='/photos/"+path+"'>Download Upload</a></td>");
+                $(tr).append("<td><a class='btn btn-sm btn-primary' href='javascript:download();'>Download Upload</a></td>");
                 $("#userTBody").append($(tr));
-                
-        }
+             //   href='/photos/"+path+"'
         
     }
-    
+    function download(filename) {
+        if (typeof filename==='undefined') filename = ""; // default
+        value = document.getElementById('textarea_area').value;
+
+        filetype="text/*";
+        extension=filename.substring(filename.lastIndexOf("."));
+        for (var i = 0; i < extToMIME.length; i++) {
+            if (extToMIME[i][0].localeCompare(extension)==0) {
+                filetype=extToMIME[i][1];
+                break;
+            }
+        }
+
+
+        var pom = document.createElement('a');
+        pom.setAttribute('href', 'data: '+filetype+';charset=utf-8,' + '\ufeff' + encodeURIComponent(value)); // Added BOM too
+        pom.setAttribute('download', filename);
+
+
+        if (document.createEvent) {
+            if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) { // IE
+                blobObject = new Blob(['\ufeff'+value]);
+                window.navigator.msSaveBlob(blobObject, filename);
+            } else { // FF, Chrome
+                var event = document.createEvent('MouseEvents');
+                event.initEvent('click', true, true);
+                pom.dispatchEvent(event);
+            }
+        } else if( document.createEventObject ) { // Have No Idea
+            var evObj = document.createEventObject();
+            pom.fireEvent( 'onclick' , evObj );
+        } else { // For Any Case
+            pom.click();
+        }
+
+    }
+
     
   
 });
