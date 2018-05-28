@@ -133,7 +133,7 @@
                 $(tr).append("<td>"+upload_docs+"</td>");
                 $(tr).append("<td>"+complete+"</td>");
                 $(tr).append("<td>"+time_created+"</td>");
-                $(tr).append("<td><a class='btn btn-sm btn-primary download'  href='/photos/"+path+"'>Download Upload</a></td>");
+                $(tr).append("<td><a class='btn btn-sm btn-primary download'  >Download Upload</a></td>");
                 
                 $(".download").on("click",function(){
                     download('/photos/'+path);
