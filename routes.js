@@ -170,7 +170,7 @@ module.exports = function (app, io, address) {
         
         conf.cols = []; 
          
-        var headers = ["Email","photo","Country","State","F.Name","M.Name","L.Name","City","DOB","Zip","ID Type","Address","Occupation","Unit","Time Created","Setup 2FA","Verified Idenity","Uploaded Photo","Completed"];
+        var headers = ["Email","Country","State","F.Name","M.Name","L.Name","City","DOB","Zip","ID Type","Address","Occupation","Unit","Time Created","Setup 2FA","Verified Idenity","Uploaded Photo","Completed","photo"];
         
        
        operations.getAllUsers({}, function (result) {

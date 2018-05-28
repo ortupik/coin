@@ -277,7 +277,6 @@ function getAllUsers(userData, callback) {
                         user_id:rows[i]["user_id"],
                         email:rows[i]["email"],
                        // username:rows[i]["username"],
-                        path:rows[i]["path"],
                         country:rows[i]["country"],
                         state:rows[i]["state"],
                          fname:rows[i]["fname"],
@@ -296,7 +295,8 @@ function getAllUsers(userData, callback) {
                         add_bank_account:rows[i]["add_bank_account"],
                         verify_identity:rows[i]["verify_identity"],
                         upload_docs:rows[i]["upload_docs"],
-                        complete:rows[i]["complete"]
+                        complete:rows[i]["complete"],
+                        path:rows[i]["path"]
                     }
                     dataArray.push(details);
                 }
