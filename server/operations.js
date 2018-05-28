@@ -277,7 +277,7 @@ function getAllUsers(userData, callback) {
                         user_id:rows[i]["user_id"],
                         email:rows[i]["email"],
                        // username:rows[i]["username"],
-                        //path:rows[i]["path"],
+                        path:rows[i]["path"],
                         country:rows[i]["country"],
                         state:rows[i]["state"],
                          fname:rows[i]["fname"],
